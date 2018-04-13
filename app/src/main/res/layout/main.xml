@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff000000"
+    android:orientation="vertical"
+    android:weightSum="1.0"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:id="@+id/anchorView">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_marginTop="5.0dip"
+        android:layout_weight="0.7"
+        android:gravity="center">
+
+        <com.ortiz.touch.TouchImageView
+            android:id="@+id/images"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:contentDescription="@null" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/playerView"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="0.3"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--<TextView-->
+            <!--android:id="@+id/songTitle"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:textColor="#ff04b3d2"-->
+            <!--android:textStyle="bold" />-->
+
+        <SeekBar
+            android:id="@+id/songProgressBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="2dp"
+            android:progress="30"
+            android:layout_below="@id/songTitle" />
+
+        <LinearLayout
+            android:id="@+id/timerDisplay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/songProgressBar"
+            android:layout_marginBottom="8.0dip"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip">
+
+            <TextView
+                android:id="@+id/songCurrentDurationLabel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="left"
+                android:textColor="#ffeeeeee"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/songTotalDurationLabel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="right"
+                android:textColor="#ff04cbde"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/mute_unmute_btn"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:layout_marginTop="25.0dip"
+            android:layout_below="@id/songProgressBar"
+            android:layout_toLeftOf="@id/playpause_btn"
+            android:background="@android:drawable/ic_lock_silent_mode_off"
+            android:contentDescription="@null"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/playpause_btn"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:layout_below="@id/songProgressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25.0dip"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/reset_btn"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:layout_below="@id/songProgressBar"
+            android:layout_toRightOf="@id/playpause_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25.0dip"
+            android:background="@android:drawable/ic_menu_more"
+            android:contentDescription="@null"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/next_btn"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:layout_alignBaseline="@id/playpause_btn"
+            android:layout_alignBottom="@id/playpause_btn"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15.0dip"
+            android:background="@drawable/ic_btn_forword"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/previous_btn"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:layout_alignBaseline="@id/playpause_btn"
+            android:layout_alignBottom="@id/playpause_btn"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="14.0dip"
+            android:background="@drawable/ic_btn_backword"
+            android:contentDescription="@null" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/footerView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom|center_horizontal"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id">
+        </com.google.android.gms.ads.AdView>
+    </LinearLayout>
+</LinearLayout>
